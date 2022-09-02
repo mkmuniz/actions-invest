@@ -2,27 +2,71 @@ import React from 'react';
 import PaidIcon from '@mui/icons-material/Paid';
 import HelpIcon from '@mui/icons-material/Help';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
-import { BoxStyle, ContainerStyle, HeaderStyle } from './style';
-import { Container, Grid, Box, Card, Paper, CardContent, CardMedia, Typography } from '@mui/material';
+import { BoxStyle, ContainerHeaderStyle, ContainerStyle, HeaderStyle } from './style';
+import { Container, Grid, Box, Card, CardContent, CardMedia, Typography, Paper } from '@mui/material';
 
 export default function HomeContent() {
     return (
         <Box sx={BoxStyle}>
-            <Paper
-                sx={HeaderStyle}
-            />
-            <Container>
+            <Box sx={HeaderStyle}>
+                <Container sx={ContainerHeaderStyle}>
+                    <Grid alignItems='center' textAlign='center' container spacing={5}>
+                        <Grid item xs={12} md={6}>
+                            <Typography textAlign='left' variant="h3" component="h3" gutterBottom>
+                                <strong>
+                                    Pesquise e fique atualizado sobre
+                                    <br /> bolsas e startups
+                                    <br /> para investir
+                                </strong>
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12} md={3}>
+                            <Card sx={{ maxWidth: '70%' }}>
+                                <CardMedia sx={{ m: 'auto', height: "100px" }} image="https://br.advfn.com/p.php?pid=staticchart&s=BOV%5EIBOV&t=37&p=0&dm=0&vol=0&width=280&height=200&min_pre=0&min_after=0" />
+                                <CardContent sx={{ textAlign: 'center' }}>
+                                    <h1>IBOV</h1>
+                                    <p>Gráfico Índice Bovespa</p>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={12} md={3}>
+                            <Card sx={{ maxWidth: '70%', mb: '20px' }}>
+                                <CardMedia sx={{ m: 'auto', height: "100px" }} image="https://cdn-www.infobip.com/wp-content/uploads/2021/04/06120509/logo-gupy-horizontal.png" />
+                                <CardContent sx={{ textAlign: 'center' }}>
+                                    <h1>Gupy</h1>
+                                    <p>Startup destaque de 2022</p>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={12} md={3}>
+                            <h1>US$ 76 bilhões</h1>
+                            <p>Volume de trading diário </p>
+                        </Grid>
+                        <Grid item xs={12} md={3}>
+                            <h1>350+</h1>
+                            <p>Startups e bolsas listadas</p>
+                        </Grid>
+                        <Grid item xs={12} md={3}>
+                            <h1>90 milhões</h1>
+                            <p>Nao sei, muita gente</p>
+                        </Grid>
+                        <Grid item xs={12} md={3}>
+                            <h1>0,10%</h1>
+                            <p>Chance de ganhar de mim com o Batman</p>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Box>
+            <Container sx={{ textAlign: 'center' }}>
                 <Grid sx={ContainerStyle} alignItems='center' container spacing={3}>
                     <Grid xs={4} item>
                         <Card sx={{ maxWidth: '70%' }}>
                             <CardMedia sx={{ m: 'auto' }}>
                                 <HelpIcon sx={{ width: '100%', pt: '15px', height: '80px' }} />
                             </CardMedia>
-                            <CardContent>
-                                <Typography align='center'>
-                                    <h1>Quem somos?</h1>
-                                    <p>Somos um serviço para auxiliar investidores de startups e criptomoedas</p>
-                                </Typography>
+                            <CardContent sx={{ textAlign: 'center' }}>
+                                <h1>Quem somos?</h1>
+                                <p>Somos um serviço para auxiliar investidores de startups e criptomoedas</p>
                             </CardContent>
                         </Card>
                     </Grid>
@@ -31,11 +75,9 @@ export default function HomeContent() {
                             <CardMedia sx={{ m: 'auto' }}>
                                 <PaidIcon sx={{ width: '100%', pt: '15px', height: '90px' }} />
                             </CardMedia>
-                            <CardContent>
-                                <Typography align='center'>
-                                    <h1>Serviços</h1>
-                                    <p>Informações sobre as criptomoedas do mercado e das melhores startups para se investir</p>
-                                </Typography>
+                            <CardContent sx={{ textAlign: 'center' }}>
+                                <h1>Serviços</h1>
+                                <p>Informações sobre as criptomoedas do mercado e das melhores startups para se investir</p>
                             </CardContent>
                         </Card>
                     </Grid>
@@ -44,34 +86,17 @@ export default function HomeContent() {
                             <CardMedia sx={{ m: 'auto' }}>
                                 <Diversity3Icon sx={{ width: '100%', pt: '15px', height: '80px' }} />
                             </CardMedia>
-                            <CardContent>
-                                <Typography align='center'>
-                                    <h1>Equipe</h1>
-                                    <p>Site administrado por um único usuário e atualizado pelo o mesmo.</p>
-                                </Typography>
+                            <CardContent sx={{ textAlign: 'center' }}>
+                                <h1>Equipe</h1>
+                                <p>Site administrado por um único usuário e atualizado pelo o mesmo.</p>
                             </CardContent>
                         </Card>
                     </Grid>
                 </Grid>
-                <Box sx={{ bgcolor: 'white', borderRadius: '10px' }} boxShadow={2}>
-                    <Typography align='center' sx={{ m: '4px' }}>
-                        <h1>Missão</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in lacinia libero. Proin quis felis vitae nunc tempor faucibus. Ut tellus neque, suscipit eget libero sed, finibus porta elit. Quisque ultricies non tellus non hendrerit. Morbi eu lectus condimentum, fermentum tortor vestibulum, euismod urna. Donec commodo semper lobortis. Cras venenatis augue eu arcu facilisis fermentum. Suspendisse et elit sit amet neque auctor consequat a a neque. Vivamus vehicula ornare augue in facilisis. Praesent placerat, arcu vel tincidunt blandit, justo purus ultrices nisl, et tincidunt lectus mi ac velit. Quisque sollicitudin accumsan turpis.</p>
-                        <p>Nullam eros nulla, ornare vel volutpat eu, dapibus ac lacus. Duis sem ipsum, lobortis vitae sagittis non, convallis ac nulla. Donec pulvinar at nisi scelerisque ultrices. Donec ut lorem a tellus porttitor sodales. Sed tellus mi, vulputate nec orci vitae, varius rhoncus dui. Maecenas eros eros, mattis vitae sem ut, consectetur congue velit. Nulla facilisi. Morbi maximus sapien vel dolor sollicitudin, sed auctor purus varius. Mauris lacus massa, suscipit nec tincidunt id, vestibulum eu turpis. Curabitur sollicitudin, metus non ultrices sollicitudin, nulla arcu lobortis diam, sit amet feugiat ante lorem auctor purus. Nunc nunc eros, fringilla a tempus at, sagittis sit amet odio. Quisque molestie tortor at libero molestie, eu interdum diam pharetra.
-                        </p>
-                    </Typography>
-                </Box>
-                <Box>
-                    <Typography align='center'>
-                        <h1>Contato</h1>
-                        <p>Entre em contato conosco pelo e-mail:
-                            <a>
-                                mikaelmuniz2001@gmail.com
-                            </a>
-                        </p>
-                    </Typography>
-                </Box>
             </Container>
+            <Box sx={HeaderStyle}>
+                teste
+            </Box>
         </Box>
     );
 }

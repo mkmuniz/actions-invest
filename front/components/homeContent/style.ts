@@ -9,7 +9,13 @@ export const ContainerStyle = {
 };
 
 export const HeaderStyle = {
-    backgroundImage: 'url(https://cdn.pixabay.com/photo/2016/11/27/21/42/stock-1863880_960_720.jpg)',
-    height: '60vh', 
+    bgcolor: 'white',
+    height: '100%', 
     width: '100%',
+    mt: '50px',
+    mb: '50px',
+}; 
+
+export const ContainerHeaderStyle = {
+    margin: '30px'
 }; 
