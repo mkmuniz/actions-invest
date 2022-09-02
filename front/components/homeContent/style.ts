@@ -18,4 +18,9 @@ export const HeaderStyle = {
 
 export const ContainerHeaderStyle = {
     margin: '30px'
-}; 
+};
+
+export const ContainerBottomStyle = {
+    mt: '30px',
+    pb: "40px",
+};

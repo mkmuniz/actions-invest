@@ -2,8 +2,10 @@ import React from 'react';
 import PaidIcon from '@mui/icons-material/Paid';
 import HelpIcon from '@mui/icons-material/Help';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
-import { BoxStyle, ContainerHeaderStyle, ContainerStyle, HeaderStyle } from './style';
-import { Container, Grid, Box, Card, CardContent, CardMedia, Typography, Paper } from '@mui/material';
+import Button from '@mui/material/Button';
+import BusinessIcon from '@mui/icons-material/Business';
+import { BoxStyle, ContainerBottomStyle, ContainerHeaderStyle, ContainerStyle, HeaderStyle } from './style';
+import { Container, Grid, Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 
 export default function HomeContent() {
     return (
@@ -94,9 +96,17 @@ export default function HomeContent() {
                     </Grid>
                 </Grid>
             </Container>
-            <Box sx={HeaderStyle}>
-                teste
-            </Box>
+            <Container sx={ContainerBottomStyle}>
+                <Card>
+                    <CardMedia>
+                        <BusinessIcon sx={{ width: '100%', pt: '15px', height: '80px' }} />
+                    </CardMedia>
+                    <CardContent sx={{ textAlign: 'center' }}>
+                        <h1>Quer cadastrar sua startup?</h1>
+                        <Button variant="outlined">Cadastrar</Button>
+                    </CardContent>
+                </Card>
+            </Container>
         </Box>
     );
 }
