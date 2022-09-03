@@ -1,9 +1,8 @@
+import { startupRouter } from './models/startup/routes';
 import express from 'express';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+router.use('/startup', startupRouter);
 
 export default router;
