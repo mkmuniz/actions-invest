@@ -1,12 +1,12 @@
 import { Pool } from 'pg';
-require('dotenv').config({ path: __dirname+'/.env' });
+import 'dotenv/config';
 
 const conn = new Pool({
-    user: process.env.USER,
-    host: process.env.HOST,
-    database: process.env.NAME,
-    password: process.env.PASSWORD,
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
     port: 5432,
 });
 
-module.exports = conn;
+export default conn;
