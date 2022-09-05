@@ -14,8 +14,8 @@ export default class StartupService {
         });
     }
 
-    static async getOneStartups(id: string): Promise<StartupInfo[]> {
-        return conn.query(`SELECT FROM startups WHERE id=${id}`).then((res) => {
+    static async getOneStartups(id: any) {
+        return conn.query(`SELECT * FROM startups WHERE id=${id}`).then((res) => {
             return res.rows
         }).catch((err) => {
             console.log(err);
@@ -23,23 +23,47 @@ export default class StartupService {
         });
     }
 
-    static async insertOneStartups(body: any): Promise<StartupInfo[]> {
-        const queryLine = `INSERT INTO startups (name, description) VALUES ('${body.name}', '${body.description}')`;
-        return conn.query(queryLine).then((res) => {
-            return res.rows
-        }).catch((err) => {
+    static async insertOneStartups(body: any) {
+        try {
+            conn.query(`INSERT INTO startups (name, description) VALUES ('${body.name}', '${body.description}')`)
+
+            return {
+                status: 200,
+                message: "Startup created"
+            }
+        } catch (err) {
             console.log(err);
             return err;
-        });
+        }
     }
 
-    static async patchOneStartups(): Promise<StartupInfo[]> {
-        return [{
-            id: 1,
-            name: "Startup 1",
-            description: "Description 1",
-            createdAt: new Date(),
-            updatedAt: new Date()
-        }];
+    static async updateOneStartups(id: string, body: any) {
+        try {
+            conn.query(`UPDATE startups SET name='${body.name}', description='${body.description}' WHERE id=${id}`)
+
+            return {
+                id: id,
+                status: 200,
+                message: "Startup updated successfully"
+            }
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
+    }
+
+    static async deleteOneStartups(id: string) {
+        try {
+            conn.query(`DELETE FROM startups WHERE id=${id}`)
+
+            return {
+                id: id,
+                status: 200,
+                message: "Startup deleted"
+            }
+        } catch (err) {
+            console.log(err);
+            return err;
+        }
     }
 }
