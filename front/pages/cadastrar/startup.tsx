@@ -3,6 +3,7 @@ import { Container } from '@mui/system';
 import React from 'react';
 import Footer from '../../components/footer';
 import SearchAppBar from '../../components/navbar';
+import { insertOne } from '../../requests/startup';
 
 
 export default function Startup() {
@@ -18,11 +19,18 @@ export default function Startup() {
         setForm({ ...form, [name]: value });
     };
 
-    const sendForm = () => {
-        console.log('enviando');
+    const sendForm = async () => {
+        try {
+            await insertOne(form);
+
+            return console.log("Success!")
+        } catch (err) {
+            console.log(err);
+            return console.log(err);
+        }
+
     };
 
-    console.log(form);
     return <>
         <div style={{ backgroundColor: 'yellow' }}>
             <SearchAppBar />
