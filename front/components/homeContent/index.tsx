@@ -103,7 +103,7 @@ export default function HomeContent() {
                     </CardMedia>
                     <CardContent sx={{ textAlign: 'center' }}>
                         <h1>Quer cadastrar sua startup?</h1>
-                        <Button variant="outlined">Cadastrar</Button>
+                        <Button href="/cadastrar/startup" variant="outlined">Cadastrar</Button>
                     </CardContent>
                 </Card>
             </Container>
