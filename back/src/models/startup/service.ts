@@ -25,7 +25,7 @@ export default class StartupService {
 
     static async insertOneStartups(body: any) {
         try {
-            conn.query(`INSERT INTO startups (name, description) VALUES ('${body.name}', '${body.description}')`)
+            conn.query(`INSERT INTO startups (name, description, email, website) VALUES ('${body.name}', '${body.description}',  '${body.email}', '${body.website}')`)
 
             return {
                 status: 200,
@@ -39,7 +39,7 @@ export default class StartupService {
 
     static async updateOneStartups(id: string, body: any) {
         try {
-            conn.query(`UPDATE startups SET name='${body.name}', description='${body.description}' WHERE id=${id}`)
+            conn.query(`UPDATE startups SET name='${body.name}', description='${body.description}', email='${body.email}, website='${body.website} WHERE id=${id}`)
 
             return {
                 id: id,
