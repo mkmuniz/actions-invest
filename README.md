@@ -34,8 +34,12 @@ DB_NAME=""
 
 Open **pgAdmin 4**, connect to database, open a query and paste this line `CREATE TABLE startups (id serial primary key, name varchar, description, varchar, email varchar, websitevarchar);` and run.
 
-<h2>Fifth Step<h2>
+<h2>Fifth Step</h2>
 
-Run `npm start' in terminal that you created inside back's folder and `npm run dev` inside front's folder. Access website in `http://localhost:3000` and the api `http://localhost:4000`
+Run `npm start` in terminal that you created inside back's folder
+
+`npm run dev` inside front's folder. 
+
+Access website in `http://localhost:3000` and the api `http://localhost:4000`
 
 
