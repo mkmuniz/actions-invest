@@ -23,8 +23,9 @@ export default class StartupService {
         });
     }
 
-    static async insertOneStartups(): Promise<StartupInfo[]> {
-        return conn.query(`INSERT INTO startups`).then((res) => {
+    static async insertOneStartups(body: any): Promise<StartupInfo[]> {
+        const queryLine = `INSERT INTO startups (name, description) VALUES ('${body.name}', '${body.description}')`;
+        return conn.query(queryLine).then((res) => {
             return res.rows
         }).catch((err) => {
             console.log(err);
