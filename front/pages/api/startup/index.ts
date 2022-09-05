@@ -5,4 +5,4 @@ export default async function getAll(req: NextApiRequest, res: NextApiResponse) 
   const data = await resp.json()
 
   res.status(200).send(data)
-}
+};
