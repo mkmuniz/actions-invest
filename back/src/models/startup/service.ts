@@ -6,29 +6,30 @@ export default class StartupService {
     static startups: StartupInfo[] | PromiseLike<StartupInfo[]>;
 
     static async getAllStartups(): Promise<QueryResult> {
-        const res = conn.query("SELECT * FROM startups");
-        
-        return res;
+        return conn.query("SELECT * FROM startups").then((res) => {
+            return res.rows
+        }).catch((err) => {
+            console.log(err);
+            return err;
+        });
     }
 
-    static async getOneStartups(): Promise<StartupInfo[]> {
-        return [{
-            id: 1,
-            name: "Startup 1",
-            description: "Description 1",
-            createdAt: new Date(),
-            updatedAt: new Date()
-        }];
+    static async getOneStartups(id: string): Promise<StartupInfo[]> {
+        return conn.query(`SELECT FROM startups WHERE id=${id}`).then((res) => {
+            return res.rows
+        }).catch((err) => {
+            console.log(err);
+            return err;
+        });
     }
 
     static async insertOneStartups(): Promise<StartupInfo[]> {
-        return [{
-            id: 1,
-            name: "Startup 1",
-            description: "Description 1",
-            createdAt: new Date(),
-            updatedAt: new Date()
-        }];
+        return conn.query(`INSERT INTO startups`).then((res) => {
+            return res.rows
+        }).catch((err) => {
+            console.log(err);
+            return err;
+        });
     }
 
     static async patchOneStartups(): Promise<StartupInfo[]> {

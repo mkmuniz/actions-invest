@@ -8,7 +8,8 @@ export async function getAllStartups(req: express.Request, res: express.Response
 };
 
 export async function getOneStartup(req: express.Request, res: express.Response) {
-    const startup = await StartupService.getAllStartups();
+    const { id } = req.params;
+    const startup = await StartupService.getOneStartups(id);
 
     res.status(200).send(startup);
 };
