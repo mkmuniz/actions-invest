@@ -1,13 +1,14 @@
 import { Button, Card, CardContent, CardMedia, FormControl, TextField, Grid, Box } from '@mui/material';
-import { Container } from '@mui/system';
-import React from 'react';
+import React, { useState } from 'react';
 import Footer from '../../components/footer';
+import MessageTemplate from '../../components/message';
 import SearchAppBar from '../../components/navbar';
 import { insertOne } from '../../requests/startup';
 
 
 export default function Startup() {
-    const [form, setForm] = React.useState({
+    const [feedback, setFeedback] = useState({ status: '', description: '' });
+    const [form, setForm] = useState({
         name: '',
         description: '',
         website: '',
@@ -23,12 +24,17 @@ export default function Startup() {
         try {
             await insertOne(form);
 
-            return console.log("Success!")
+            setFeedback({
+                status: 'success',
+                description: 'Startup cadastrada com sucesso!',
+            });
         } catch (err) {
             console.log(err);
-            return console.log(err);
+            return setFeedback({
+                status: 'error',
+                description: 'Erro ao cadastrar startup!',
+            });
         }
-
     };
 
     return <>
@@ -72,6 +78,7 @@ export default function Startup() {
                                 />
                             </FormControl>
                             <Box sx={{ m: '15px' }}>
+                                <MessageTemplate {...feedback} />
                                 <Button onClick={sendForm} variant="outlined">Enviar</Button>
                             </Box>
                         </CardContent>
