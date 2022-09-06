@@ -1,4 +1,4 @@
-<h1>Abount</h1>
+<h1>About</h1>
 
 Actions Invest is a small project made by me to help investors in startups and stock exchange. It was made with React, Next and Typescript.
 
